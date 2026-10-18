@@ -1,6 +1,6 @@
 /* ===== EDIT THESE TWO LINES ===== */
-const WA="919999999999";          // WhatsApp number: country code + number, no + or spaces
-const MAIL="info@sourceeve.com";  // company email
+const WA="+971554782240";          // WhatsApp number: country code + number, no + or spaces
+const MAIL="Recruitment@sourceeve.com";  // company email
 /* ================================= */
 const wl=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 const EXT=["jpg","png","webp","jpeg"];
