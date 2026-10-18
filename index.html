@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SourceEve Group | Connecting People, Products &amp; Possibilities</title>
+<meta name="description" content="SourceEve Group of Companies: Staffing Solutions, Export Imports, Events &amp; Exhibitions.">
+<meta name="theme-color" content="#10304f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--ink:#10304f;--teal:#0d8a7f;--gold:#d6a03c;--soft:#f4f7fa;--line:#e3e9ef;--mut:#566879;--r:14px}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font:16px/1.65 Manrope,system-ui,sans-serif;color:var(--ink);background:#fff}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,5vw,3.5rem)}h2{font-size:clamp(1.6rem,3.4vw,2.4rem)}h3{font-size:1.2rem}
+a{color:inherit;text-decoration:none}img{max-width:100%;-webkit-user-drag:none}
+p+p,.lead+.lead{margin-top:12px}
+.wrap{max-width:1180px;margin:auto;padding:0 20px}
+.lead{color:var(--mut);max-width:64ch}.tg{color:var(--teal);font-weight:700;margin:8px 0 14px}
+small{color:var(--teal);font-weight:600}
+#pb{position:fixed;top:0;left:0;height:3px;width:0;background:var(--gold);z-index:60}
+header{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:22px;height:70px}
+.lg{display:flex;align-items:center;gap:10px;margin-right:auto}.lg img{height:38px}
+.lg b{font:700 1.25rem Fraunces,serif;display:block;line-height:1.1}.lg span small{color:var(--mut);font-size:.68rem;font-weight:500}
+nav.dk{display:none;gap:24px;font-weight:600;font-size:.93rem}
+nav.dk a{padding:6px 0;border-bottom:2px solid transparent}nav.dk a:hover,nav.dk a.on{border-color:var(--teal);color:var(--teal)}
+@media(min-width:960px){nav.dk{display:flex}}
+#hb{width:46px;height:46px;border:1px solid var(--line);border-radius:12px;background:#fff;display:grid;place-content:center;gap:5px;cursor:pointer}
+#hb i{display:block;width:20px;height:2px;background:var(--ink)}
+#ov{position:fixed;inset:0;background:rgba(10,25,40,.5);opacity:0;pointer-events:none;transition:.3s;z-index:40}
+#dr{position:fixed;top:0;right:0;height:100%;width:min(370px,88vw);background:#fff;z-index:50;transform:translateX(100%);transition:transform .35s;padding:22px;overflow:auto;display:flex;flex-direction:column;gap:2px}
+body.mo #ov{opacity:1;pointer-events:auto}body.mo #dr{transform:none}
+#dr .x{align-self:flex-end;font-size:2rem;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink);margin-bottom:8px}
+#dr>a,#dr summary{padding:13px 4px;border-bottom:1px solid var(--line);font-weight:700;cursor:pointer;list-style:none;display:block}
+#dr summary:after{content:"+";float:right;color:var(--teal)}#dr details[open] summary:after{content:"–"}
+#dr details a{display:block;padding:10px 4px 10px 16px;color:var(--mut);font-weight:500}#dr details a:hover{color:var(--teal)}
+#dr .btn{margin-top:18px;text-align:center}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:700;font-size:.92rem;border:2px solid var(--ink);cursor:pointer;background:var(--ink);color:#fff;transition:.2s;font-family:inherit}
+.btn:hover{background:var(--teal);border-color:var(--teal)}.btn.o{background:transparent;color:var(--ink)}.btn.o:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.w{background:#25d366;border-color:#25d366;color:#063}.btn.w:hover{background:#1ebe5a;border-color:#1ebe5a}
+.row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.sec{padding:76px 0}.sec.s{background:var(--soft)}
+.hh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
+.hero{padding:56px 0 70px}.hero .wrap{display:grid;gap:40px;align-items:center}
+@media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
+.hero .im{aspect-ratio:4/3;border-radius:26px;animation:fi 1.1s both}
+@keyframes fi{from{opacity:0;transform:scale(.96)}}
+.im{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center}
+.im span{font-size:3rem}.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{display:block;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,48,79,.1)}
+.card .im{aspect-ratio:16/10}.card .im img{transition:transform .6s}.card:hover .im img{transform:scale(1.06)}
+.card .b{padding:18px}.card .b p{color:var(--mut);font-size:.95rem;margin-top:8px}.lk{display:inline-block;margin-top:12px;font-weight:700;color:var(--teal)}
+.vp{overflow:hidden;border-radius:var(--r);touch-action:pan-y;user-select:none}
+.tr{display:flex;gap:16px;transition:transform .65s cubic-bezier(.4,0,.2,1)}
+.sl{position:relative;flex:0 0 82%;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;color:#fff}
+.sl .im{position:absolute;inset:0}.sl:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(8,20,32,.88))}
+.cap{position:absolute;left:20px;right:20px;bottom:18px;z-index:2}.cap small{color:var(--gold)}.cap h3{font-size:1.5rem}.cap p{font-size:.9rem;opacity:.9;margin-top:4px}
+@media(min-width:620px){.sl{flex-basis:calc((100% - 16px)/2)}}@media(min-width:960px){.sl{flex-basis:calc((100% - 32px)/3)}}
+.ar{display:flex;gap:8px}.ar button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;font-size:1.3rem;cursor:pointer;color:var(--ink)}.ar button:hover{background:var(--ink);color:#fff}
+.dots{display:flex;gap:8px;justify-content:center;margin-top:18px}.dots button{width:9px;height:9px;border-radius:9px;border:0;background:#cbd5df;cursor:pointer;transition:.3s;padding:0}.dots button.on{width:26px;background:var(--teal)}
+.val{padding:24px;border-radius:var(--r);background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold)}.val p{color:var(--mut);margin-top:8px;font-size:.95rem}
+.band{background:var(--ink);color:#fff;text-align:center;padding:64px 0}.band .lead{color:#c9d6e2;margin:14px auto 0}.band .btn.o{color:#fff;border-color:#fff}.band .btn.o:hover{background:#fff;color:var(--ink)}.band .row{justify-content:center}
+.tabs{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:30px 0 44px}
+.tab{font:inherit;color:inherit;text-align:left;cursor:pointer;border:2px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff;padding:0;transition:.2s}
+.tab .im{aspect-ratio:16/9}.tab .t{display:block;padding:14px 16px}.tab .t b{display:block}.tab .t small{color:var(--mut);font-weight:500}
+.tab:hover{border-color:#b8c7d6}.tab.on{border-color:var(--teal);box-shadow:0 10px 26px rgba(13,138,127,.18)}.tab.on .t b{color:var(--teal)}
+.pn{display:grid;gap:36px}@media(min-width:900px){.pn{grid-template-columns:1.1fr 1fr}}
+.pn h3{margin:22px 0 6px}.ck{list-style:none;padding:0}.ck li{padding:10px 0 10px 28px;position:relative;border-bottom:1px solid var(--line)}.ck li:before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:800}
+.ck li b{display:block}.ck li span{color:var(--mut);font-size:.93rem}
+.note{background:var(--soft);border-left:3px solid var(--gold);padding:14px 18px;border-radius:8px;color:var(--mut);font-size:.92rem;margin-top:24px}
+.cta{margin-top:40px;padding:34px;border-radius:var(--r);background:linear-gradient(135deg,var(--ink),#1c4a74);color:#fff}.cta p{color:#c9d6e2;margin-top:8px}.cta .btn.o{color:#fff;border-color:#fff}.cta .btn.o:hover{background:#fff;color:var(--ink)}
+.mk{display:grid;gap:6px;padding:20px 0;border-bottom:1px solid var(--line)}@media(min-width:760px){.mk{grid-template-columns:260px 1fr;gap:30px}}.mk p{color:var(--mut)}
+form{display:grid;gap:14px}label{font-weight:600;font-size:.9rem;display:grid;gap:6px}
+input,select,textarea{font:inherit;padding:13px 14px;border:1px solid #cfd9e3;border-radius:10px;background:#fff;color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus,.btn:focus-visible,#hb:focus-visible,.tab:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.fw{padding:28px;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 12px 34px rgba(16,48,79,.07)}
+.pg{display:grid;gap:36px}@media(min-width:900px){.pg{grid-template-columns:1fr 1.1fr}}
+footer{background:#0b2238;color:#b9c8d6;padding:52px 0 26px;font-size:.93rem}footer .g{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+footer h3{color:#fff;font-size:1rem;margin-bottom:10px}footer a{display:block;padding:3px 0}footer a:hover{color:#fff}
+.cp{border-top:1px solid #1d3a55;margin-top:30px;padding-top:18px;font-size:.82rem}
+.wab{position:fixed;right:18px;bottom:18px;z-index:35;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 22px rgba(0,0,0,.25);transition:.2s}.wab:hover{transform:scale(1.08)}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<i id="pb"></i>
+<header><div class="wrap bar">
+ <a class="lg" href="#/"><img src="images/logo.png" alt="" onerror="this.remove()"><span><b>SourceEve</b><small>Group of Companies</small></span></a>
+ <nav class="dk"><a data-r="home" href="#/">Home</a><a data-r="about" href="#/about">About Us</a><a data-r="businesses" href="#/businesses">Our Businesses</a><a data-r="markets" href="#/markets">Our Markets</a><a data-r="contact" href="#/contact">Contact</a></nav>
+ <button id="hb" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+</div></header>
+<div id="ov"></div>
+<aside id="dr" aria-label="Menu">
+ <button class="x" id="cl" aria-label="Close menu">×</button>
+ <a href="#/">Home</a>
+ <details><summary>About Us</summary><a href="#/about">Our Story</a><a href="#/about/mission">Vision &amp; Mission</a><a href="#/about/values">Core Values</a><a href="#/about/reach">Global Reach</a></details>
+ <details><summary>Our Businesses</summary><a href="#/staffing">Staffing Solutions</a><a href="#/events">Events &amp; Exhibitions</a><a href="#/exports">Export Imports</a></details>
+ <details><summary>Our Markets</summary><a href="#/markets/recruit">Recruitment Destinations</a><a href="#/markets/trade">Trade Markets</a><a href="#/markets/projects">Project Locations</a></details>
+ <details><summary>Partner With Us</summary><a href="#/contact/employer">Employer Enquiries</a><a href="#/contact/supplier">Supplier Partnerships</a><a href="#/contact/event">Event Enquiries</a></details>
+ <a href="#/contact">Contact Us</a>
+ <a class="btn w" id="dw" target="_blank" rel="noopener">Chat on WhatsApp</a>
+</aside>
+<main id="app"></main>
+<footer><div class="wrap">
+ <div class="g">
+  <div><h3>SourceEve Group of Companies</h3><p>Connecting People, Products &amp; Possibilities.</p></div>
+  <div><h3>Our Businesses</h3><a href="#/staffing">Staffing Solutions</a><a href="#/events">Events &amp; Exhibitions</a><a href="#/exports">Export Imports</a></div>
+  <div><h3>Company</h3><a href="#/about">About Us</a><a href="#/markets">Our Markets</a><a href="#/contact">Contact</a></div>
+  <div><h3>Follow us</h3><a href="#" target="_blank" rel="noopener">LinkedIn</a><a href="#" target="_blank" rel="noopener">Instagram</a><a href="#" target="_blank" rel="noopener">Facebook</a></div>
+ </div>
+ <p class="cp">© 2026 SourceEve Group of Companies. All rights reserved.</p>
+</div></footer>
+<a class="wab" id="wab" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="31" height="31" fill="#fff" fill-rule="evenodd"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.6-2.6-1.1-4.3-3.8-4.4-4-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.8 1.2 2.1 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.8-.1 1.4z"/></svg></a>
+
+<script>
+/* ====== EDIT THESE TWO ====== */
+const WA="919999999999";            // WhatsApp number: country code + number, no + or spaces
+const MAIL="info@sourceeve.com";    // company email
+/* ============================ */
+const wl=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
+const U=i=>`https://images.unsplash.com/photo-${i}?auto=format&fit=crop&w=900&q=70`;
+/* Images: put your own photo in /images/<f> (e.g. images/turmeric.jpg). If missing, the Unsplash link u is used, then a colour tile. */
+const im=(o,cl="")=>`<div class="im ${cl}" style="--a:${o.c[0]};--b:${o.c[1]}"><span>${o.e}</span><img src="images/${o.f}" alt="${o.k}" loading="lazy" onerror="this.onerror=()=>this.remove();this.src='${U(o.u)}'"></div>`;
+const P=[
+{k:"Turmeric",g:"Spices",e:"🟡",c:["#e8a317","#a86a08"],f:"turmeric.jpg",u:"1615485290382-441e4d049cb5",d:"Whole fingers and powder, supplied to buyer specification."},
+{k:"Red Chilli",g:"Spices",e:"🌶️",c:["#d62d20","#8c140c"],f:"chilli.jpg",u:"1588252303782-cb80119abd6d",d:"Dried whole and ground chilli in a range of heat levels."},
+{k:"Cardamom",g:"Spices",e:"🌿",c:["#7fa65a","#44652d"],f:"cardamom.jpg",u:"1599909533730-4f5c5dc5b4b6",d:"Green cardamom pods, sorted by size and aroma."},
+{k:"Black Pepper",g:"Spices",e:"⚫",c:["#3b3b3b","#151515"],f:"pepper.jpg",u:"1599909366516-6c1d0b1e8d3e",d:"Whole peppercorns and ground pepper for culinary use."},
+{k:"Cumin",g:"Spices",e:"🟤",c:["#a8743a","#6b4318"],f:"cumin.jpg",u:"1596040033229-a9821ebd058d",d:"Cumin seed and powder for blends and retail packs."},
+{k:"Cinnamon",g:"Spices",e:"🪵",c:["#b5651d","#6e3a0e"],f:"cinnamon.jpg",u:"1587735243615-c03f25aaff15",d:"Cinnamon sticks and ground cinnamon, packed to requirement."},
+{k:"Fresh Fruits",g:"Fresh produce",e:"🍊",c:["#f28c28","#c8501a"],f:"fruits.jpg",u:"1610832958506-aa56368176cf",d:"Seasonal fruits sourced to buyer specifications and destination-market standards."},
+{k:"Fresh Vegetables",g:"Fresh produce",e:"🥬",c:["#4caf50","#2a7a30"],f:"vegetables.jpg",u:"1540420773420-3366772f4999",d:"Seasonal vegetables sourced by quality requirements and availability."},
+{k:"Home Furnishing",g:"Home & merchandise",e:"🛋️",c:["#7a8fa6","#42566b"],f:"furnishing.jpg",u:"1555041469-a586c61ea9bc",d:"Home furnishing goods and selected merchandise for cross-border trade."}];
+const H={k:"Global trade",e:"🌍",c:["#10304f","#0d8a7f"],f:"hero.jpg",u:"1494412574643-ff11b0a5c1c3"};
+const pcard=p=>`<div class="card rv">${im(p)}<div class="b"><small>${p.g}</small><h3>${p.k}</h3><p>${p.d}</p></div></div>`;
+const li=a=>a.map(x=>`<li>${x}</li>`).join("");
+const B={
+staffing:{n:"SourceEve Staffing Solutions",c:"Overseas Recruitment & Workforce Solutions",t:"Connecting Global Talent with Global Opportunities",e:"🤝",k:"Staffing",f:"staffing.jpg",u:"1521737604893-d14cc237f11d",col:["#1d5a8a","#10304f"],ex:"Explore Recruitment",
+ sd:"Connecting global employers with skilled professionals and workforce talent across industries and international markets.",
+ p:["SourceEve Staffing Solutions is the recruitment and workforce solutions division of SourceEve Group of Companies. We help businesses identify, source, and recruit suitable talent across multiple industries and international markets.","Our services cover blue-collar and white-collar positions, from general workers and skilled tradespeople to technical professionals, administrative staff, and other qualified personnel.","Our sourcing network focuses on India, Africa, Sri Lanka, Nepal, the Philippines, Vietnam, and other potential markets. Our philosophy is simple: the right talent, the right opportunity, and the right connection."],
+ sh:"Our recruitment services",s:["Overseas recruitment and international manpower sourcing","Blue-collar and skilled workforce recruitment","White-collar and professional recruitment","Bulk hiring and project-based recruitment","Employer-led recruitment drives and interview coordination","Candidate screening and shortlisting","Recruitment coordination and mobilization support","Recruitment partnership solutions for employers and authorized agencies"],
+ x:()=>`<h3>Industries we serve</h3><div class="g" style="margin-top:14px">${[["Construction & MEP","Helpers, masons, electricians, plumbers, carpenters, steel fixers and technicians."],["Logistics & Operations","Warehouse staff, helpers, delivery personnel and operational workers."],["Facilities Management","Cleaners, housekeeping teams, maintenance staff and support workers."],["Professional Roles","Administrative, technical, managerial and other white-collar positions."]].map(a=>`<div class="val rv"><h3>${a[0]}</h3><p>${a[1]}</p></div>`).join("")}</div><div class="note"><b>Target employment markets:</b> UAE and the wider GCC (Saudi Arabia, Kuwait, Bahrain, Oman); Europe, including Germany and Spain; Australia, the United States, Russia, and other markets subject to employer requirements and applicable work authorization. These are target markets, not a claim that every destination or category is currently active.</div>`,
+ cq:"Looking for reliable recruitment support?",ct:"Contact SourceEve Staffing Solutions to discuss your vacancies, workforce requirements, and upcoming recruitment drives."},
+events:{n:"SourceEve Events & Exhibitions",c:"Event Management & Exhibition Solutions",t:"Event Management & Exhibition Solutions",e:"🎪",k:"Events",f:"events.jpg",u:"1540575467063-178a50c2df87",col:["#7b4fa3","#3f2260"],ex:"Explore Events & Exhibitions",
+ sd:"Planning and delivering corporate events, exhibition booths, brand activations, and end-to-end event experiences.",
+ p:["SourceEve Events & Exhibitions is the events division of SourceEve Group of Companies, specializing in event planning, exhibition participation, booth design and construction, and end-to-end event execution.","We help businesses plan and deliver corporate events, exhibition booths, brand activations, and complete event experiences."],
+ sh:"Our event and exhibition services",s:["<b>Corporate Events & Conferences</b><span>Planning and coordination for corporate gatherings, business meetings, conferences, seminars, and company functions.</span>","<b>Exhibition Booth Design & Construction</b><span>Custom booth concepts, layout planning, fabrication coordination, installation, and dismantling according to project scope.</span>","<b>Brand Activations & Product Launches</b><span>Event concepts and brand experiences designed to help businesses engage with audiences and showcase their products.</span>","<b>End-to-End Event Management</b><span>Planning, vendor coordination, venue arrangements, production scheduling, on-site execution, and post-event coordination as required.</span>"],
+ x:()=>"",cq:"Planning an event or exhibiting at a trade show?",ct:"Let SourceEve Events & Exhibitions help you transform your brief into a professional, engaging experience."},
+exports:{n:"SourceEve Export Imports",c:"International Trade & Global Sourcing",t:"Bringing Quality Products to Global Markets",e:"🚢",k:"Export Imports",f:"exports.jpg",u:"1586528116311-ad8dd3c8310d",col:["#0d8a7f","#075a52"],ex:"Explore International Trade",
+ sd:"Facilitating international trade in fruits and vegetables, spices, home furnishing products, and selected merchandise.",
+ p:["SourceEve Export Imports is the international trading division of SourceEve Group of Companies, connecting suppliers, manufacturers, distributors, and buyers across international markets.","Our interests include fresh fruits and vegetables, spices and culinary ingredients, home furnishing goods, and other selected products with potential for cross-border trade.","With a sourcing focus on India and China and an interest in serving buyers across the Middle East, Europe, and the United States, we aim to build reliable supply relationships and lasting trading partnerships that create value for both suppliers and buyers."],
+ sh:"What we trade",s:["Spices and culinary ingredients","Fresh fruits and vegetables","Home furnishing goods","Other selected merchandise"],
+ x:()=>`<h3>Our product categories</h3><div class="g" style="margin-top:14px">${P.map(pcard).join("")}</div><div class="note">Actual product availability, destination eligibility, certifications, customs requirements, and shipping arrangements depend on each transaction.</div>`,
+ cq:"Looking to source products or expand your market?",ct:"Connect with SourceEve Export Imports to discuss your product requirements, sourcing opportunities, or international trade partnership."}};
+const BK=["staffing","events","exports"];
+const bcard=k=>{const b=B[k];return `<a class="card rv" href="#/${k}">${im({k:b.k,e:b.e,c:b.col,f:b.f,u:b.u})}<div class="b"><h3>${b.n}</h3><small>${b.c}</small><p>${b.sd}</p><span class="lk">${b.ex} →</span></div></a>`};
+const vals=[["Integrity","Building trust through transparency and responsible business practices."],["Excellence","Delivering professional, practical, and quality-focused solutions."],["Global Mindset","Connecting markets, talent, and opportunities across borders."],["Partnership","Creating long-term relationships built around shared success."]];
+const valsH=()=>`<div class="g">${vals.map(v=>`<div class="val rv"><h3>${v[0]}</h3><p>${v[1]}</p></div>`).join("")}</div>`;
+const panel=t=>{const b=B[t];return `<div class="pn rv"><div><h2>${b.n}</h2><p class="tg">${b.t}</p>${b.p.map(x=>`<p class="lead">${x}</p>`).join("")}</div><div><h3 style="margin-top:0">${b.sh}</h3><ul class="ck">${li(b.s)}</ul></div></div><div style="margin-top:40px">${b.x()}</div><div class="cta rv"><h2>${b.cq}</h2><p>${b.ct}</p><div class="row"><a class="btn w" target="_blank" rel="noopener" href="${wl("Hello SourceEve Group, I would like to enquire about "+b.n+".")}">Chat on WhatsApp</a><a class="btn o" href="#/contact">Send an enquiry</a></div></div>`};
+const pages={
+home:()=>`<section class="hero"><div class="wrap"><div class="rv"><h1>Connecting People, Products &amp; Possibilities</h1><p class="lead" style="margin-top:18px">A diversified group with a global outlook, bringing together international recruitment, import and export, and events and exhibitions under one trusted name.</p><div class="row"><a class="btn" href="#/businesses">Explore Our Businesses</a><a class="btn o" href="#/contact">Contact Our Team</a></div></div>${im(H)}</div></section>
+<section class="sec s"><div class="wrap"><div class="hh"><div><h2>Trending Exports</h2><p class="lead">What buyers ask us for most. Swipe or wait, it moves on its own.</p></div><div class="ar"><button id="pv" aria-label="Previous">‹</button><button id="nx" aria-label="Next">›</button></div></div><div class="vp"><div class="tr" id="tr">${P.map((p,i)=>`<article class="sl">${im(p)}<div class="cap"><small>Trending #${i+1}</small><h3>${p.k}</h3><p>${p.d}</p></div></article>`).join("")}</div></div><div class="dots" id="dots"></div></div></section>
+<section class="sec"><div class="wrap"><div class="hh"><div><h2>Our Business Ventures</h2><p class="lead">Three specialized businesses, one shared commitment to professionalism and long-term partnerships.</p></div></div><div class="g">${BK.map(bcard).join("")}</div></div></section>
+<section class="sec s"><div class="wrap"><div class="hh"><h2>Our Core Values</h2></div>${valsH()}</div></section>
+<section class="band"><div class="wrap rv"><h2>Every connection is an opportunity to create something meaningful.</h2><p class="lead">Recruitment, trade, or events: tell us what you need and our team will respond.</p><div class="row"><a class="btn w" target="_blank" rel="noopener" href="${wl("Hello SourceEve Group, I would like to discuss a requirement.")}">Chat on WhatsApp</a><a class="btn o" href="#/contact">Send an enquiry</a></div></div></section>`,
+about:()=>`<section class="sec"><div class="wrap"><div class="rv" id="story"><h1>About SourceEve Group of Companies</h1><p class="tg">Building connections. Creating opportunities. Expanding horizons.</p><p class="lead">SourceEve Group of Companies is a diversified business group focused on international recruitment, import and export, and event management and exhibition solutions.</p><p class="lead">Our vision is to build a trusted international business network that connects companies with talent, markets with products, and brands with opportunities. Through our specialized sister companies, we deliver focused, practical, and professional solutions tailored to the evolving needs of businesses across industries and regions.</p></div></div></section>
+<section class="sec s" id="mission"><div class="wrap g g2"><div class="val rv"><h2>Our Vision</h2><p>To become a trusted international group recognized for connecting global talent, facilitating trade, and delivering memorable business experiences.</p></div><div class="val rv"><h2>Our Mission</h2><p>To provide dependable, customer-focused business solutions through specialized services, ethical practices, international collaboration, and a commitment to long-term value creation.</p></div></div></section>
+<section class="sec" id="values"><div class="wrap"><div class="hh"><h2>Our Core Values</h2></div>${valsH()}</div></section>
+<section class="sec s" id="reach"><div class="wrap rv"><h2>A Global Outlook, Built on Local Connections</h2><p class="lead" style="margin-top:14px">Through our recruitment, international trade, and events and exhibitions divisions, we aim to connect businesses and opportunities across Asia, Africa, the Middle East, Europe, Australia, and North America.</p><p class="lead">Our approach combines international reach with an understanding of local requirements, market expectations, and the importance of dependable partnerships.</p><div class="row"><a class="btn" href="#/markets">See our markets</a></div></div></section>`,
+businesses:t=>`<section class="sec"><div class="wrap"><div class="rv"><h1>Our Businesses</h1><p class="lead" style="margin-top:12px">Three ventures, each serving a distinct market while sharing the same values. Choose one to see details.</p></div><div class="tabs">${BK.map(k=>{const b=B[k];return `<button class="tab" data-t="${k}">${im({k:b.k,e:b.e,c:b.col,f:b.f,u:b.u})}<span class="t"><b>${b.n}</b><small>${b.c}</small></span></button>`}).join("")}</div><div id="pn"></div></div></section>`,
+markets:()=>`<section class="sec"><div class="wrap"><div class="rv"><h1>Our Markets</h1><p class="tg">A Global Outlook, Built on Local Connections</p><p class="lead">SourceEve Group is developing international business relationships across multiple regions. As our network grows, we continue to explore opportunities that bring businesses, suppliers, employers, and customers closer together.</p></div><div style="margin-top:30px">${[["recruit","Staffing Solutions","India, Africa, South and Southeast Asia for candidate sourcing; GCC, Europe, Australia, the USA and other eligible destinations for employment."],["trade","Export Imports","India and China for sourcing; Middle East, Europe and the USA as target markets."],["projects","Events &amp; Exhibitions","Markets served according to client projects, event locations and business partnerships."]].map(a=>`<div class="mk rv" id="${a[0]}"><h3>${a[1]}</h3><p>${a[2]}</p></div>`).join("")}</div></div></section>`,
+contact:()=>`<section class="sec"><div class="wrap pg"><div class="rv"><h1>Let’s Build Something Together</h1><p class="lead" style="margin-top:14px">Whether you’re looking for recruitment solutions, international trade opportunities, or professional event services, our team would be pleased to hear from you.</p><div class="row"><a class="btn w" target="_blank" rel="noopener" href="${wl("Hello SourceEve Group, I would like to get in touch.")}">Chat on WhatsApp</a><a class="btn o" href="mailto:${MAIL}">${MAIL}</a></div></div><div class="fw rv"><form id="fm"><label>Full Name *<input name="n" required placeholder="Enter your full name"></label><label>Company Name<input name="c" placeholder="Your company name"></label><label>Business Email *<input name="e" type="email" required placeholder="you@company.com"></label><label>I’m interested in *<select name="i" id="si"><option>Recruitment &amp; Staffing Solutions</option><option>Export &amp; Import</option><option>Events &amp; Exhibitions</option><option>General Enquiry / Business Partnership</option></select></label><label>Your Message *<textarea name="m" rows="4" required placeholder="Tell us about your requirements..."></textarea></label><button class="btn w" type="submit">Send on WhatsApp</button><small>Opens WhatsApp with your enquiry ready to send.</small></form></div></div></section>`};
+let tm;const $=id=>document.getElementById(id);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+const rv=()=>document.querySelectorAll(".rv:not(.in)").forEach(e=>io.observe(e));
+function car(){const tr=$("tr"),vp=tr.parentNode,d=$("dots");let i=0,st,max;
+ const calc=()=>{st=tr.children[0].offsetWidth+16;max=Math.max(0,tr.children.length-Math.round(vp.offsetWidth/st))};
+ const go=k=>{i=k>max?0:k<0?max:k;tr.style.transform=`translateX(${-i*st}px)`;[...d.children].forEach((x,j)=>x.classList.toggle("on",j==i))};
+ const run=()=>{clearInterval(tm);tm=setInterval(()=>go(i+1),3000)};
+ calc();d.innerHTML=Array.from({length:max+1},(_,j)=>`<button aria-label="Slide ${j+1}"></button>`).join("");
+ [...d.children].forEach((b,j)=>b.onclick=()=>{go(j);run()});
+ $("pv").onclick=()=>{go(i-1);run()};$("nx").onclick=()=>{go(i+1);run()};
+ let x0=null;vp.onpointerdown=e=>{x0=e.clientX;clearInterval(tm)};
+ vp.onpointerup=e=>{if(x0!=null){const dx=e.clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null}run()};
+ vp.onpointercancel=run;vp.onmouseenter=()=>clearInterval(tm);vp.onmouseleave=run;
+ window.onresize=()=>{calc();go(Math.min(i,max))};go(0);run()}
+function showTab(t,pushHash){document.querySelectorAll(".tab").forEach(b=>b.classList.toggle("on",b.dataset.t==t));$("pn").innerHTML=panel(t);if(pushHash)history.replaceState(null,"","#/"+t);rv()}
+function route(){clearInterval(tm);window.onresize=null;
+ let [r,s]=(location.hash.slice(2)||"home").split("/"),pg=r,tab;
+ if(B[r]){pg="businesses";tab=r}if(pg=="businesses"&&!tab)tab="staffing";
+ if(!pages[pg])pg="home";
+ $("app").innerHTML=pages[pg](tab);
+ document.querySelectorAll("nav.dk a").forEach(a=>a.classList.toggle("on",a.dataset.r==pg));
+ document.body.classList.remove("mo");
+ if(pg=="home")car();
+ if(pg=="businesses"){showTab(tab,false);document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{showTab(b.dataset.t,true);$("pn").scrollIntoView({behavior:"smooth"})})}
+ if(pg=="contact"){const m={employer:0,supplier:1,event:2};if(s in m)$("si").selectedIndex=m[s];
+  $("fm").onsubmit=e=>{e.preventDefault();const f=e.target,v=Object.fromEntries(new FormData(f));
+   window.open(wl(`Hello SourceEve Group,\n\nName: ${v.n}\nCompany: ${v.c||"-"}\nEmail: ${v.e}\nInterested in: ${v.i}\n\n${v.m}`),"_blank")}}
+ const el=s&&$(s);el?el.scrollIntoView():scrollTo(0,0);rv()}
+const mo=o=>{document.body.classList.toggle("mo",o);$("hb").setAttribute("aria-expanded",o)};
+$("hb").onclick=()=>mo(true);$("cl").onclick=$("ov").onclick=()=>mo(false);
+$("dr").onclick=e=>{if(e.target.closest("a"))mo(false)};
+document.onkeydown=e=>{if(e.key=="Escape")mo(false)};
+$("wab").href=$("dw").href=wl("Hello SourceEve Group, I would like to know more about your services.");
+onscroll=()=>{$("pb").style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight||1)*100)+"%"};
+addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
