@@ -36,6 +36,10 @@ body.mo #ov{opacity:1;pointer-events:auto}body.mo #dr{transform:none}
 .hero{padding:56px 0 70px}.hero .wrap{display:grid;gap:40px;align-items:center}
 @media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
 .hero .im{aspect-ratio:4/3;border-radius:26px}
+/* Shift hero image slightly to the left */
+.hx-bg img {
+  object-position: left center;
+}
 .im{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--a),var(--b));display:grid;place-items:center}
 .im span{font-size:3rem}.im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .g{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}.g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
