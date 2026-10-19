@@ -25,8 +25,9 @@ Shared files: `style.css` (design) and `main.js` (menu, carousel, zoom, WhatsApp
 1. Open `main.js` and edit the two lines at the top:
 
    ```js
-   const WA="919999999999";          // WhatsApp number with country code, no + or spaces
-   const MAIL="info@sourceeve.com";  // company email
+   const WA="+971554782240";          // WhatsApp number with country code, no + or spaces
+   const WA="+918377848523";          // Indian Phone Number 
+   const MAIL="Recruitment@sourceeve.com";  // company email
    ```
 
 2. Add your photos to the `images/` folder. `images/IMAGE-LIST.txt` lists every file name.
