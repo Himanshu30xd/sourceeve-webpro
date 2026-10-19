@@ -17,7 +17,11 @@ const stamp=()=>new Date().toLocaleString("en-GB",{dateStyle:"medium",timeStyle:
 const wl=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 const EXT=["jpg","png","webp","jpeg"];
 /* Image fallback: tries .jpg > .png > .webp > .jpeg, then a stock photo (if any), then the colour tile */
-function imgErr(i){let n=+(i.dataset.n||0);if(n<EXT.length-1){i.dataset.n=++n;i.src=i.dataset.b+"."+EXT[n]}else if(i.dataset.u&&!i.dataset.t){i.dataset.t=1;i.src="https://images.unsplash.com/photo-"+i.dataset.u+"?auto=format&fit=crop&w=900&q=70"}else i.remove()}
+function loadEmbed(cb){if(window.EMBED)return cb();const s=document.createElement("script");s.src="fallback-images.js";s.onload=cb;s.onerror=cb;document.head.appendChild(s)}
+function imgErr(i){let n=+(i.dataset.n||0);if(n<EXT.length-1){i.dataset.n=++n;i.src=i.dataset.b+"."+EXT[n]}else if(i.dataset.u&&!i.dataset.t){i.dataset.t=1;i.src="https://images.unsplash.com/photo-"+i.dataset.u+"?auto=format&fit=crop&w=900&q=70"}
+ else{const k=(i.dataset.b||"").split("/").pop();if(i.dataset.e||(k!="hero"&&k!="logo")){i.remove();return}i.dataset.e=1;loadEmbed(()=>{if(window.EMBED&&EMBED[k])i.src=EMBED[k];else i.remove()})}}
+/* header logo: if images/logo.* is missing the header shows text; swap in the backup logo */
+addEventListener("load",()=>{const b=document.querySelector("header .lg b");if(b)loadEmbed(()=>{if(window.EMBED&&EMBED.logo){const m=new Image();m.alt="SourceEve Group of Companies";m.src=EMBED.logo;b.replaceWith(m)}})});
 document.addEventListener("DOMContentLoaded",()=>{
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 $$("[data-wa]").forEach(a=>{a.href=wl(a.dataset.wa);a.target="_blank";a.rel="noopener"});
