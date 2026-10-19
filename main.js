@@ -14,12 +14,19 @@ async function sendMail(tpl,params){
  try{const r=await fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},signal:ac.signal,body:JSON.stringify({service_id:EMAILJS.serviceId,template_id:tpl,user_id:EMAILJS.publicKey,template_params:params})});
   const t=await r.text();if(!r.ok)throw new Error(t||"HTTP "+r.status);return t}finally{clearTimeout(tm)}}
 const stamp=()=>new Date().toLocaleString("en-GB",{dateStyle:"medium",timeStyle:"short"})+" ("+Intl.DateTimeFormat().resolvedOptions().timeZone+")";
+document.documentElement.classList.add("jsok");
 const wl=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 const EXT=["jpg","png","webp","jpeg"];
 /* Image fallback: tries .jpg > .png > .webp > .jpeg, then a stock photo (if any), then the colour tile */
 function loadEmbed(cb){if(window.EMBED)return cb();const s=document.createElement("script");s.src="fallback-images.js";s.onload=cb;s.onerror=cb;document.head.appendChild(s)}
-function imgErr(i){let n=+(i.dataset.n||0);if(n<EXT.length-1){i.dataset.n=++n;i.src=i.dataset.b+"."+EXT[n]}else if(i.dataset.u&&!i.dataset.t){i.dataset.t=1;i.src="https://images.unsplash.com/photo-"+i.dataset.u+"?auto=format&fit=crop&w=900&q=70"}
- else{const k=(i.dataset.b||"").split("/").pop();if(i.dataset.e||(k!="hero"&&k!="logo")){i.remove();return}i.dataset.e=1;loadEmbed(()=>{if(window.EMBED&&EMBED[k])i.src=EMBED[k];else i.remove()})}}
+const ALIAS={hero:["home","hero-banner","banner"]};
+function cands(b){const nm=b.split("/").pop(),dir=b.slice(0,b.length-nm.length),o=[];
+ if(b.includes("/products/")){for(const e of EXT)o.push(b+"."+e);return o}
+ for(const n of [nm,...(ALIAS[nm]||[])])for(const d of [...new Set([dir,"images/","images/products/",""])])for(const e of EXT)o.push(d+n+"."+e);return o}
+function imgErr(i){const L=cands(i.dataset.b||""),n=(+i.dataset.n||0)+1;
+ if(n<L.length){i.dataset.n=n;i.src=L[n]}
+ else if(i.dataset.u&&!i.dataset.t){i.dataset.t=1;i.src="https://images.unsplash.com/photo-"+i.dataset.u+"?auto=format&fit=crop&w=900&q=70"}
+ else{const k=(i.dataset.b||"").split("/").pop();if(i.dataset.e||k!="logo"){i.remove();return}i.dataset.e=1;loadEmbed(()=>{if(window.EMBED&&EMBED.logo)i.src=EMBED.logo;else i.remove()})}}
 /* header logo: if images/logo.* is missing the header shows text; swap in the backup logo */
 addEventListener("load",()=>{const b=document.querySelector("header .lg b");if(b)loadEmbed(()=>{if(window.EMBED&&EMBED.logo){const m=new Image();m.alt="SourceEve Group of Companies";m.src=EMBED.logo;b.replaceWith(m)}})});
 document.addEventListener("DOMContentLoaded",()=>{
@@ -32,6 +39,8 @@ $("#dr").onclick=e=>{if(e.target.closest("a"))mo(false)};
 const pg=document.body.dataset.p;$$("nav.dk a").forEach(a=>a.classList.toggle("on",a.dataset.r==pg));
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});
 $$(".rv").forEach(e=>e.getBoundingClientRect().top<innerHeight?e.classList.add("in","inst"):io.observe(e));
+/* smooth image fade-in (no flash of placeholder) */
+$$(".im img,.hx-bg img").forEach(m=>{const ok=()=>m.classList.add("ld");m.complete&&m.naturalWidth?ok():m.addEventListener("load",ok)});
 /* trending carousel: auto every 3s, swipe, arrows, dots */
 const tr=$("#tr");if(tr){const vp=tr.parentNode,d=$("#dots");let i=0,st,max,tm,x0=null,mv=false;
  const calc=()=>{st=tr.children[0].offsetWidth+16;max=Math.max(0,tr.children.length-Math.round(vp.offsetWidth/st))};

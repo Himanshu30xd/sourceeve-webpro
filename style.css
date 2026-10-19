@@ -136,3 +136,8 @@ header nav.dk{margin:0 auto}#hb{margin-left:auto}
 .req-body{padding:28px 32px}.req-f{display:grid;gap:14px}.req-q{align-items:end;display:grid;grid-template-columns:1fr 130px;gap:12px}
 .fs{min-height:1.4em;margin:0;font-weight:600;font-size:.92rem}.fs.ok{color:#1a7f4b}.fs.err{color:#c0262d}
 .btn:disabled{opacity:.65;cursor:wait}
+
+/* images: no emoji placeholders, soft fade-in */
+.im span{display:none}.pi .im{background:#f1f4f8}
+.jsok .im img,.jsok .hx-bg img{opacity:0;transition:opacity .45s ease}
+.jsok .im img.ld,.jsok .hx-bg img.ld{opacity:1}
