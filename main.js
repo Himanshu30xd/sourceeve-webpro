@@ -1,7 +1,19 @@
 /* ===== EDIT THESE TWO LINES ===== */
-const WA="+971554782240";          // WhatsApp number: country code + number, no + or spaces
+const WA="971554782240";          // WhatsApp number: country code + number, no + or spaces
+const TEL="+971 55 478 2240";     // phone number as shown on the site
 const MAIL="Recruitment@sourceeve.com";  // company email
 /* ================================= */
+/* ===== EMAILJS: both forms deliver to the client's Gmail =====
+   Paste the 4 PUBLIC values from your EmailJS dashboard. Never put passwords or private keys here. */
+const EMAILJS={publicKey:"YOUR_EMAILJS_PUBLIC_KEY",serviceId:"YOUR_EMAILJS_SERVICE_ID",inquiryTemplateId:"YOUR_INQUIRY_TEMPLATE_ID",productTemplateId:"YOUR_PRODUCT_REQUEST_TEMPLATE_ID"};
+/* ============================================================ */
+const mailOk=t=>[EMAILJS.publicKey,EMAILJS.serviceId,t].every(v=>v&&!/^YOUR_/.test(v));
+async function sendMail(tpl,params){
+ if(!mailOk(tpl))throw new Error("EmailJS is not configured");
+ const ac=new AbortController(),tm=setTimeout(()=>ac.abort(),15000);
+ try{const r=await fetch("https://api.emailjs.com/api/v1.0/email/send",{method:"POST",headers:{"Content-Type":"application/json"},signal:ac.signal,body:JSON.stringify({service_id:EMAILJS.serviceId,template_id:tpl,user_id:EMAILJS.publicKey,template_params:params})});
+  const t=await r.text();if(!r.ok)throw new Error(t||"HTTP "+r.status);return t}finally{clearTimeout(tm)}}
+const stamp=()=>new Date().toLocaleString("en-GB",{dateStyle:"medium",timeStyle:"short"})+" ("+Intl.DateTimeFormat().resolvedOptions().timeZone+")";
 const wl=m=>`https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 const EXT=["jpg","png","webp","jpeg"];
 /* Image fallback: tries .jpg > .png > .webp > .jpeg, then a stock photo (if any), then the colour tile */
@@ -44,9 +56,27 @@ if(items.length){lb=document.createElement("div");lb.id="lb";
  lb.querySelector(".xx").onclick=hide;lb.querySelector(".pv").onclick=()=>show(k-1);lb.querySelector(".nx").onclick=()=>show(k+1);
  lb.onclick=e=>{if(e.target==lb)hide()};
  document.addEventListener("keydown",e=>{if(!lb.classList.contains("on"))return;if(e.key=="Escape")hide();if(e.key=="ArrowLeft")show(k-1);if(e.key=="ArrowRight")show(k+1)})}
-/* contact form -> WhatsApp */
+/* shared submit: validation, loading, success, error, no duplicates */
+const say=(el,m,ok)=>{el.textContent=m;el.classList.remove("ok","err");if(m)el.classList.add(ok?"ok":"err")};
+async function submitForm(f,tpl,build,done){
+ const st=f.querySelector(".fs"),btn=f.querySelector("button[type=submit]");
+ if(f.dataset.busy)return;if(f.elements.website&&f.elements.website.value)return;
+ const c=f.elements.contact;if(c){const v=c.value.trim();c.setCustomValidity(/^\S+@\S+\.\S+$/.test(v)||v.replace(/\D/g,"").length>=7?"":"Enter a valid email or phone number")}
+ if(!f.checkValidity()){f.reportValidity();return}
+ f.dataset.busy=1;btn.disabled=true;const lab=btn.textContent;btn.textContent="Sending…";say(st,"");
+ try{await sendMail(tpl,build(Object.fromEntries(new FormData(f))));say(st,done,1);f.reset()}
+ catch(e){console.error("EmailJS:",e);say(st,mailOk(tpl)?"Sorry, we couldn’t send this right now. Please try again, or contact us on WhatsApp.":"The email service isn’t configured yet. Please contact us on WhatsApp for now.",0)}
+ finally{btn.textContent=lab;setTimeout(()=>{btn.disabled=false;delete f.dataset.busy},2500)}}
+/* product request card at the end of every category grid (category = page title) */
+const grid=$(".pgrid");if(grid){const h=$(".bh h1"),cat=(h?h.textContent:document.title.split("|")[0]).trim();
+ grid.insertAdjacentHTML("beforeend",`<div class="req" id="request"><div class="req-side"><svg viewBox="0 0 120 100" width="96" aria-hidden="true"><g fill="rgba(255,255,255,.08)" stroke="#fff" stroke-width="3" stroke-linejoin="round"><path d="M60 14l40 20-40 20-40-20z"/><path d="M20 34l40 20v42L20 76z"/><path d="M100 34L60 54v42l40-20z"/></g><path d="M40 24l40 20" stroke="#e31b23" stroke-width="6" stroke-linecap="round"/></svg><h3>Can’t Find Your Product?</h3><p>Tell us what you need. We’ll check availability and get back to you.</p><span class="req-cat">Category: <b></b></span></div><div class="req-body"><form class="req-f"><label>Product name *<input name="product" required maxlength="120" placeholder="e.g. Kashmiri red chilli"></label><div class="req-q"><label>Quantity *<input name="qty" type="number" min="0.01" step="any" required placeholder="e.g. 500"></label><label>Unit<select name="unit"><option>kg</option><option>tonnes</option><option>boxes</option><option>pieces</option></select></label></div><label>Your email or phone *<input name="contact" required maxlength="120" placeholder="So we can reply to you"></label><label>Additional details<textarea name="msg" rows="3" maxlength="1500" placeholder="Grade, packing, destination, timeline…"></textarea></label><input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn" type="submit">Send Request</button><p class="fs" role="status" aria-live="polite"></p></form></div></div>`);
+ grid.querySelector(".req-cat b").textContent=cat;const f=grid.querySelector(".req-f");f.elements.contact.addEventListener("input",e=>e.target.setCustomValidity(""));
+ f.onsubmit=e=>{e.preventDefault();submitForm(f,EMAILJS.productTemplateId,v=>({subject:"New Product Request — SourceEve",category:cat,product_name:v.product,quantity:v.qty+" "+v.unit,quantity_value:v.qty,unit:v.unit,message:v.msg||"-",contact:v.contact,reply_to:/@/.test(v.contact)?v.contact:"",submitted_at:stamp(),page_url:location.href}),"Thank you! Your request has been sent. We’ll check availability and get back to you.")}}
+/* contact form -> email (EmailJS) */
 const fm=$("#fm");if(fm){const m={employer:0,supplier:1,event:2},q=new URLSearchParams(location.search).get("i");if(q in m)$("#si").selectedIndex=m[q];
- fm.onsubmit=e=>{e.preventDefault();const v=Object.fromEntries(new FormData(fm));
-  window.open(wl(`Hello SourceEve Group,\n\nName: ${v.n}\nCompany: ${v.c||"-"}\nEmail: ${v.e}\nInterested in: ${v.i}\n\n${v.m}`),"_blank")}}
+ fm.onsubmit=e=>{e.preventDefault();submitForm(fm,EMAILJS.inquiryTemplateId,v=>({subject:"New Inquiry — SourceEve: "+v.i,from_name:v.n,company:v.c||"-",reply_to:v.e,from_email:v.e,interest:v.i,message:v.m,submitted_at:stamp(),page_url:location.href}),"Thank you! Your inquiry has been sent. Our team will get back to you soon.")}}
+/* contact details (kept in sync with WA / TEL / MAIL above) */
+$$("[data-tel]").forEach(a=>{a.href="tel:+"+WA;a.textContent=TEL});
+$$("[data-mailtxt]").forEach(a=>{a.href="mailto:"+MAIL;a.textContent=MAIL});
 document.addEventListener("keydown",e=>{if(e.key=="Escape")mo(false)});
 });
