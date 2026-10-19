@@ -5,7 +5,7 @@ const MAIL="Recruitment@sourceeve.com";  // company email
 /* ================================= */
 /* ===== EMAILJS: both forms deliver to the client's Gmail =====
    Paste the 4 PUBLIC values from your EmailJS dashboard. Never put passwords or private keys here. */
-const EMAILJS={publicKey:"YOUR_EMAILJS_PUBLIC_KEY",serviceId:"YOUR_EMAILJS_SERVICE_ID",inquiryTemplateId:"YOUR_INQUIRY_TEMPLATE_ID",productTemplateId:"YOUR_PRODUCT_REQUEST_TEMPLATE_ID"};
+const EMAILJS={publicKey:"XaY2ZdTeqdGuZ2anN",serviceId:"service_evgz4un",inquiryTemplateId:"template_xbf4xm5",productTemplateId:"template_tyogtyq"};
 /* ============================================================ */
 const mailOk=t=>[EMAILJS.publicKey,EMAILJS.serviceId,t].every(v=>v&&!/^YOUR_/.test(v));
 async function sendMail(tpl,params){
@@ -84,7 +84,7 @@ async function submitForm(f,tpl,build,done){
 const grid=$(".pgrid");if(grid){const h=$(".bh h1"),cat=(h?h.textContent:document.title.split("|")[0]).trim();
  grid.insertAdjacentHTML("beforeend",`<div class="req" id="request"><div class="req-side"><svg viewBox="0 0 120 100" width="96" aria-hidden="true"><g fill="rgba(255,255,255,.08)" stroke="#fff" stroke-width="3" stroke-linejoin="round"><path d="M60 14l40 20-40 20-40-20z"/><path d="M20 34l40 20v42L20 76z"/><path d="M100 34L60 54v42l40-20z"/></g><path d="M40 24l40 20" stroke="#e31b23" stroke-width="6" stroke-linecap="round"/></svg><h3>Can’t Find Your Product?</h3><p>Tell us what you need. We’ll check availability and get back to you.</p><span class="req-cat">Category: <b></b></span></div><div class="req-body"><form class="req-f"><label>Product name *<input name="product" required maxlength="120" placeholder="e.g. Kashmiri red chilli"></label><div class="req-q"><label>Quantity *<input name="qty" type="number" min="0.01" step="any" required placeholder="e.g. 500"></label><label>Unit<select name="unit"><option>kg</option><option>tonnes</option><option>boxes</option><option>pieces</option></select></label></div><label>Your email or phone *<input name="contact" required maxlength="120" placeholder="So we can reply to you"></label><label>Additional details<textarea name="msg" rows="3" maxlength="1500" placeholder="Grade, packing, destination, timeline…"></textarea></label><input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="btn" type="submit">Send Request</button><p class="fs" role="status" aria-live="polite"></p></form></div></div>`);
  grid.querySelector(".req-cat b").textContent=cat;const f=grid.querySelector(".req-f");f.elements.contact.addEventListener("input",e=>e.target.setCustomValidity(""));
- f.onsubmit=e=>{e.preventDefault();submitForm(f,EMAILJS.productTemplateId,v=>({subject:"New Product Request — SourceEve",category:cat,product_name:v.product,quantity:v.qty+" "+v.unit,quantity_value:v.qty,unit:v.unit,message:v.msg||"-",contact:v.contact,reply_to:/@/.test(v.contact)?v.contact:"",submitted_at:stamp(),page_url:location.href}),"Thank you! Your request has been sent. We’ll check availability and get back to you.")}}
+ f.onsubmit=e=>{e.preventDefault();submitForm(f,EMAILJS.productTemplateId,v=>({subject:"New Product Request — SourceEve",category:cat,product:v.product,product_name:v.product,quantity:v.qty,unit:v.unit,details:v.msg||"-",message:v.msg||"-",contact:v.contact,reply_to:/@/.test(v.contact)?v.contact:"",submitted_at:stamp(),page_url:location.href}),"Thank you! Your request has been sent. We’ll check availability and get back to you.")}}
 /* contact form -> email (EmailJS) */
 const fm=$("#fm");if(fm){const m={employer:0,supplier:1,event:2},q=new URLSearchParams(location.search).get("i");if(q in m)$("#si").selectedIndex=m[q];
  fm.onsubmit=e=>{e.preventDefault();submitForm(fm,EMAILJS.inquiryTemplateId,v=>({subject:"New Inquiry — SourceEve: "+v.i,from_name:v.n,company:v.c||"-",reply_to:v.e,from_email:v.e,interest:v.i,message:v.m,submitted_at:stamp(),page_url:location.href}),"Thank you! Your inquiry has been sent. Our team will get back to you soon.")}}
@@ -93,3 +93,4 @@ $$("[data-tel]").forEach(a=>{a.href="tel:+"+WA;a.textContent=TEL});
 $$("[data-mailtxt]").forEach(a=>{a.href="mailto:"+MAIL;a.textContent=MAIL});
 document.addEventListener("keydown",e=>{if(e.key=="Escape")mo(false)});
 });
+   
