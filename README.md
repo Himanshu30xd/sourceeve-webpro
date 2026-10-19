@@ -32,6 +32,7 @@ Shared files: `style.css` (design) and `main.js` (menu, carousel, zoom, WhatsApp
 2. Add your photos to the `images/` folder. `images/IMAGE-LIST.txt` lists every file name.
    Product photos go in `images/products/` (for example `images/products/turmeric.jpg`).
    `.jpg`, `.png`, `.webp` and `.jpeg` all work. Missing photos show a coloured tile.
+   `fallback-images.js` holds backup copies of the logo and hero banner. They show only if `images/logo.*` or `images/hero.*` are missing, so keep this file in the root.
 
 ## Deploy on Vercel
 

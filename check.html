@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Site check</title>
+<style>
+body{font:16px/1.5 system-ui,sans-serif;margin:0;padding:20px;max-width:640px;color:#10304f}
+h1{font-size:1.3rem;margin:0 0 4px}p.s{color:#566879;margin:0 0 18px}
+.r{padding:12px 14px;border:1px solid #e3e9ef;border-radius:10px;margin-bottom:10px}
+.r b{display:block}.ok{border-left:5px solid #1a7f4b}.no{border-left:5px solid #c0262d;background:#fff6f6}.wt{border-left:5px solid #d6a03c}
+.r small{display:block;color:#566879;margin-top:2px}
+</style></head><body>
+<h1>SourceEve site check</h1>
+<p class="s">Ye page live site ki files check karta hai. Check hone ke baad ye file delete kar sakte ho.</p>
+<div id="out"></div>
+<script>
+const out=document.getElementById("out");
+const add=(state,title,msg)=>{const d=document.createElement("div");d.className="r "+state;d.innerHTML="<b>"+(state=="ok"?"✅ ":state=="no"?"❌ ":"… ")+title+"</b><small>"+msg+"</small>";out.appendChild(d)};
+const get=async p=>{try{const r=await fetch(p+"?nocache="+Date.now(),{cache:"no-store"});return{ok:r.ok,type:r.headers.get("content-type")||"",r}}catch(e){return{ok:false,type:""}}};
+const txt=async p=>{const x=await get(p);return x.ok?await x.r.text():null};
+const img=async p=>{const x=await get(p);return x.ok&&x.type.startsWith("image")};
+(async()=>{
+ const js=await txt("main.js");
+ if(js===null)add("no","main.js","Mila hi nahi. Repo ke root mein main.js upload karo.");
+ else if(!js.includes("EMAILJS"))add("no","main.js purani hai","Isi wajah se request card nahi dikhta aur contact form WhatsApp par jata hai. Zip wali main.js se replace karo.");
+ else{add("ok","main.js nayi hai","Request card aur email form isme hain.");
+  add(js.includes("YOUR_EMAILJS_PUBLIC_KEY")?"wt":"ok","EmailJS keys",js.includes("YOUR_EMAILJS_PUBLIC_KEY")?"Abhi bhari nahi hain. main.js ke top mein 4 values daalo, tab tak forms email nahi bhejenge.":"Bhari hui hain. Ab test email bhejke dekho.")}
+ const css=await txt("style.css");
+ add(css&&css.includes(".req-side")?"ok":"no","style.css",css&&css.includes(".req-side")?"Nayi hai.":css?"Purani hai. Zip wali style.css se replace karo.":"Mila nahi.");
+ const home=await txt("index.html");
+ add(home&&home.includes('class="hx"')?"ok":"no","index.html (home)",home&&home.includes('class="hx"')?"Naya hero wala page hai.":"Purana hai ya mila nahi.");
+ const con=await txt("contact.html");
+ add(con&&con.includes("Send Inquiry")?"ok":"no","contact.html",con&&con.includes("Send Inquiry")?"Naya hai.":"Purana hai ya mila nahi.");
+ for(const [n,label] of [["logo","Logo"],["hero","Hero banner"]]){
+  let found=null;
+  for(const e of ["jpg","png","webp","jpeg"]) if(await img("images/"+n+"."+e)){found="images/"+n+"."+e;break}
+  if(found)add("ok",label,found+" mili.");
+  else{let wrong=null;for(const e of ["jpg","png","webp","jpeg"]) if(await img(n+"."+e)){wrong=n+"."+e;break}
+   add("no",label,wrong?wrong+" repo ke root mein hai. Isko images folder ke andar images/"+wrong+" par rakho.":"images/"+n+".png (ya .jpg) nahi mili. Zip ke images folder se upload karo.")}}
+ {const f=await txt("fallback-images.js");add(f&&f.includes("EMBED")?"ok":"wt","fallback-images.js",f&&f.includes("EMBED")?"Mili. Agar logo ya hero images folder mein nahi bhi hon, tab bhi site unki backup copy dikhayegi.":"Nahi mili. Isko root mein upload karo, warna logo ya hero missing hone par site mein dikhenge nahi.")}
+ add("wt","Product photos","Ye page unhe check nahi karta. Missing photo ki jagah rangin tile dikhti hai.");
+})();
+</script></body></html>
