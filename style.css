@@ -33,7 +33,7 @@ body.mo #ov{opacity:1;pointer-events:auto}body.mo #dr{transform:none}
 .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .sec{padding:76px 0}.sec.s{background:var(--soft)}
 .hh{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:28px}
-.hero{padding:56px 0 70px}.hero .wrap{display:grid;gap:40px;align-items:center object-position: left center;}
+.hero{padding:56px 0 70px}.hero .wrap{display:grid;gap:40px;align-items:center ;object-position:left center}
 @media(min-width:900px){.hero .wrap{grid-template-columns:1.05fr 1fr}}
 .hero .im{aspect-ratio:4/3;border-radius:26px}
 /* Shift hero image slightly to the left */
